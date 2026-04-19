@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronDown, ArrowRight, Star } from "lucide-react";
+import Image from "next/image";
 
 const categories = [
   { value: "voiture", label: "Transport de voitures" },
@@ -28,17 +29,22 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-[#003DA5] via-[#0050cc] to-[#1a56c4] text-white overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-      </div>
+    <section className="relative min-h-[620px] md:min-h-[700px] flex items-center overflow-hidden">
+      {/* Background image */}
+      <Image
+        src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&q=80"
+        alt="Transport et déménagement"
+        fill
+        priority
+        className="object-cover object-center"
+      />
+      {/* Overlay bleu */}
+      <div className="absolute inset-0 bg-[#003DA5]/82" />
 
-      <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28 lg:py-32">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20 md:py-28">
+        <div className="max-w-3xl mx-auto text-center text-white">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold px-4 py-2 rounded-full mb-6">
             <Star size={14} className="fill-yellow-400 text-yellow-400" />
             Plus d&apos;1 000 000 d&apos;utilisateurs nous font confiance
           </div>
@@ -52,7 +58,7 @@ export default function Hero() {
           </h1>
 
           {/* Sub */}
-          <p className="text-lg md:text-xl lg:text-2xl text-blue-100 mb-8 font-light">
+          <p className="text-lg md:text-xl lg:text-2xl text-blue-100 mb-8 font-semibold tracking-wide">
             Sûr. Rapide. Économique.
           </p>
 
@@ -65,7 +71,7 @@ export default function Hero() {
               <select
                 value={selected}
                 onChange={(e) => setSelected(e.target.value)}
-                className="w-full appearance-none bg-gray-50 text-gray-800 font-medium px-4 py-3.5 pr-10 rounded-xl border border-gray-200 focus:outline-none focus:border-[#003DA5] cursor-pointer"
+                className="w-full appearance-none bg-gray-50 text-gray-800 font-semibold px-4 py-3.5 pr-10 rounded-xl border border-gray-200 focus:outline-none focus:border-[#003DA5] cursor-pointer"
                 required
               >
                 <option value="">Que voulez-vous transporter ?</option>
@@ -90,7 +96,7 @@ export default function Hero() {
           </form>
 
           {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mt-6 text-sm text-blue-100">
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mt-6 text-sm text-blue-100 font-semibold">
             <span className="flex items-center gap-1.5">
               <span className="text-green-400">✓</span>
               Devis gratuits
